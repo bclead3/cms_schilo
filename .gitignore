@@ -1,4 +1,7 @@
 /node_modules
-*.oldjson
+/*.oldjson
 package-lock.json
 .tool-versions
+npm-debug.log
+.DS_Store
+/*.env
