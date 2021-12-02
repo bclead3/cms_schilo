@@ -5,8 +5,6 @@ const hostname = process.env.hostname || '0.0.0.0'
 const PORT = process.env.PORT || 3000;
 const { exists } = require('grunt');
 
-console.log(`The port is:${PORT}`);
-
 const server = http.createServer((req, res) => {
   console.log('Request for ' + req.url + ' by method ' + req.method);
 
