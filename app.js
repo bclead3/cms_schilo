@@ -52,6 +52,11 @@ const server = http.createServer((req, res) => {
       res.setHeader('Content-Type', 'image/jpg');
       fs.createReadStream(filePath).pipe(res);
     }
+    else if (fileExt == '.ico') {
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'image/ico');
+      fs.createReadStream(filePath).pipe(res);
+    }
     else if (fileExt == '.pdf') {
       res.statusCode = 200;
       res.setHeader('Content-Type', 'application/pdf');
