@@ -13,12 +13,12 @@ const server = http.createServer((req, res) => {
     if (req.url == '/') fileUrl = '/index.html';
     else fileUrl = req.url;
 
-    console.log('fileUrl is:' + fileUrl);
+    // console.log('fileUrl is:' + fileUrl);
 
     var filePath = path.resolve('./' + fileUrl);
     const fileExt = path.extname(filePath);
 
-    console.log(`The ext for file ${filePath} is ${fileExt}`);
+    // console.log(`The ext for file ${filePath} is ${fileExt}`);
 
     if (fileExt == '.html') {
       fs.exists(filePath, (exists) => {
