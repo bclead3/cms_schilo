@@ -1,10 +1,11 @@
-// create an express app
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const hostname = process.env.hostname || 'localhost'
-const port = process.env.PORT || 3000;
+const hostname = process.env.hostname || '0.0.0.0'
+const PORT = process.env.PORT || 3000;
 const { exists } = require('grunt');
+
+console.log(`The port is:${PORT}`);
 
 const server = http.createServer((req, res) => {
   console.log('Request for ' + req.url + ' by method ' + req.method);
@@ -14,10 +15,13 @@ const server = http.createServer((req, res) => {
     if (req.url == '/') fileUrl = '/index.html';
     else fileUrl = req.url;
 
-    console.log('fileUrl is ' + fileUrl);
+    console.log('fileUrl is:' + fileUrl);
 
     var filePath = path.resolve('./' + fileUrl);
     const fileExt = path.extname(filePath);
+
+    console.log(`The ext for file ${filePath} is ${fileExt}`);
+
     if (fileExt == '.html') {
       fs.exists(filePath, (exists) => {
         if(!exists) {
@@ -94,6 +98,6 @@ const server = http.createServer((req, res) => {
 
 
 // start the server listening for requests
-server.listen(port, hostname, () => {
+server.listen(PORT, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
